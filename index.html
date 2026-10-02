@@ -1,5 +1,674 @@
-<html>
-  <head>
-    <meta http-equiv="refresh" content="1; url=https://sites.google.com/view/ittiponr"/>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Ittipon (Art) Rassameeroj</title>
+<meta name="description" content="Dr. Ittipon (Art) Rassameeroj — Assistant Dean for Technology Infrastructure and Computer Science faculty member, Faculty of ICT, Mahidol University. Research in systems, cloud/parallel/HPC computing, and cyber security.">
+<meta property="og:title" content="Dr. Ittipon (Art) Rassameeroj">
+<meta property="og:description" content="Assistant Dean for Technology Infrastructure, Faculty of ICT, Mahidol University">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5d6677;
+    --line: #e4e6ea;
+    --accent: #1f3f8f;
+    --accent-soft: #eaf0fb;
+    --gold: #b0842b;
+    --maxw: 920px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #191d27; --text: #e6e8ee; --muted: #9aa3b5;
+      --line: #2a303d; --accent: #8fb0ff; --accent-soft: #1d2640; --gold: #e0b453;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #191d27; --text: #e6e8ee; --muted: #9aa3b5;
+    --line: #2a303d; --accent: #8fb0ff; --accent-soft: #1d2640; --gold: #e0b453;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.65 "Inter", "Noto Sans Thai", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  header.nav .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
+  .brand { font-family: "Source Serif 4", serif; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .brand:hover { text-decoration: none; }
+  nav ul { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+  nav ul::-webkit-scrollbar { display: none; }
+  nav a { display: block; padding: 6px 10px; border-radius: 6px; color: var(--muted); font-size: 14px; white-space: nowrap; }
+  nav a:hover, nav a.active { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+  .theme-btn { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 6px; width: 32px; height: 32px; cursor: pointer; flex: none; }
+  @media (max-width: 640px) { .brand { display: none; } nav ul { margin-left: 0; } }
+
+  /* Hero */
+  .hero { padding: 56px 0 40px; display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: center; }
+  .avatar {
+    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+    background: var(--accent-soft); border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line);
+    display: grid; place-items: center; font: 600 56px "Source Serif 4", serif; color: var(--accent);
+  }
+  h1 { font-family: "Source Serif 4", serif; font-size: 36px; line-height: 1.2; margin: 0; font-weight: 600; }
+  .thai { font-family: "Noto Sans Thai", sans-serif; color: var(--muted); font-size: 18px; margin: 4px 0 12px; }
+  .role { font-weight: 500; margin: 0; }
+  .org { color: var(--muted); margin: 0 0 16px; }
+  .social { display: flex; flex-wrap: wrap; gap: 8px; }
+  .social a {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 13px;
+  }
+  .social a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .social svg { width: 15px; height: 15px; fill: currentColor; }
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; text-align: center; gap: 20px; padding-top: 32px; }
+    .avatar { width: 140px; height: 140px; margin: 0 auto; font-size: 44px; }
+    .social { justify-content: center; }
+    h1 { font-size: 28px; }
+  }
+
+  /* Sections */
+  section { padding: 36px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: "Source Serif 4", serif; font-size: 26px; font-weight: 600; margin: 0 0 20px; }
+  h3 {
+    font-size: 17px; font-weight: 600; color: var(--text); letter-spacing: .01em;
+    margin: 40px 0 14px; padding: 6px 0 6px 12px;
+    border-left: 4px solid var(--accent);
+    background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
+    border-radius: 0 6px 6px 0;
+  }
+  h2 + h3, h2 + p + h3, .note + h3 { margin-top: 8px; }
+  section > div:first-of-type > h3:first-child { margin-top: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+  .tags li { background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 720px) { .grid2 { grid-template-columns: 1fr; gap: 8px; } }
+
+  ul.plain { list-style: none; margin: 0; padding: 0; }
+  ul.plain > li { padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  ul.plain > li:last-child { border-bottom: none; }
+  .sub { color: var(--muted); font-size: 14px; }
+
+  /* Timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 190px 1fr; gap: 16px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline .when { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+  @media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; gap: 0; } }
+
+  /* Publications */
+  .pub-year { font-family: "Source Serif 4", serif; font-size: 20px; color: var(--accent); margin: 24px 0 8px; }
+  .pub-year:first-of-type { margin-top: 0; }
+  ol.pubs { list-style: none; margin: 0; padding: 0; }
+  ol.pubs li { padding: 10px 0 10px 14px; border-left: 2px solid var(--line); margin-bottom: 6px; }
+  ol.pubs li:hover { border-left-color: var(--accent); }
+  .pub-title { font-weight: 600; display: block; }
+  .pub-authors { font-size: 14.5px; }
+  .pub-authors b { font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .pub-venue { color: var(--muted); font-size: 14px; font-style: italic; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 600; font-style: normal; padding: 1px 8px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
+  .badge.award { background: color-mix(in srgb, var(--gold) 18%, transparent); color: var(--gold); }
+  .badge.link { border: 1px solid var(--line); color: var(--accent); }
+  .note { font-size: 14px; color: var(--muted); margin: 0 0 20px; }
+
+  /* Courses */
+  .course { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; }
+  .course .terms { text-align: right; max-width: 340px; }
+  @media (max-width: 640px) { .course { grid-template-columns: 1fr; gap: 2px; } .course .terms { text-align: left; max-width: none; } }
+  .course code { font: 500 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--accent); background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 5px; padding: 1px 7px; margin-left: 8px; white-space: nowrap; vertical-align: 1px; }
+  .terms { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+  /* Collapsibles */
+  details { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin: 12px 0; }
+  summary { cursor: pointer; padding: 12px 16px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--muted); font-weight: 400; font-size: 20px; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  summary .count { color: var(--muted); font-weight: 400; font-size: 14px; margin-left: 8px; margin-right: auto; }
+  details > ul { padding: 0 16px 8px; }
+
+  /* Students */
+  .students { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; }
+  .students li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .students .name { font-weight: 600; }
+  .alumni-group { margin-bottom: 8px; }
+  .alumni-group .proj { font-weight: 600; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  address { font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Ittipon Rassameeroj</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#students">Students</a></li>
+        <li><a href="#credentials">Honors &amp; Training</a></li>
+      </ul>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <!-- Put your photo at images/profile.jpg. If it's missing, the initials show instead. -->
+    <img class="avatar" src="images/profile.jpg" alt="Dr. Ittipon Rassameeroj"
+         onerror="this.outerHTML='<div class=&quot;avatar&quot; aria-hidden=&quot;true&quot;>IR</div>'">
+    <div>
+      <h1>Dr. Ittipon (Art) Rassameeroj</h1>
+      <p class="thai" lang="th">ดร. อิทธิพล (อาร์ท) รัศมีโรจน์</p>
+      <p class="role">Assistant Dean for Technology Infrastructure</p>
+      <p class="org">Faculty of Information and Communication Technology, Mahidol University</p>
+      <div class="social">
+        <a href="mailto:ittipon.ras@mahidol.ac.th"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.1L4 7.3V17h16V7.3l-8 4.8zM4.9 7l7.1 4.3L19.1 7H4.9z"/></svg>Email</a>
+        <a href="https://1drv.ms/b/c/d0ba12d96a156184/EXogGE1_iYRCgzk7Ax9KmiEB4-3dKns7-V_3uOGak89UsA?e=KNKcrJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a0 0 0 0 1 0 0H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3.5h8V17H8v-1.5z"/></svg>CV</a>
+        <a href="https://mahidol.elsevierpure.com/en/persons/ittipon-rassameeroj" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.2V16c0 1.7 2.7 3.5 6 3.5s6-1.8 6-3.5v-3.8l-6 3.3-6-3.3z"/></svg>Research Profile</a>
+        <a href="https://www.linkedin.com/in/itras/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5z"/></svg>LinkedIn</a>
+        <a href="https://www.facebook.com/ittipon.ras" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.5V11H7v4h3v7h4v-7h3l1-4h-4V8.8c0-.5.3-.8 1-.8z"/></svg>Facebook</a>
+        <a href="https://www.instagram.com/art_ittipon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>Instagram</a>
+        <a href="https://x.com/art_ittipon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>X</a>
+        <a href="https://www.tiktok.com/@art_ittipon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.2a6.3 6.3 0 1 0 5.4 6.2V8.6a8 8 0 0 0 4.6 1.5V6.7a4.6 4.6 0 0 1-4.6-4.7z"/></svg>TikTok</a>
+        <a href="https://www.threads.net/@art_ittipon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.3 11.1l-.4-.2c-.2-3-1.9-4.7-4.6-4.8h-.1c-1.6 0-3 .7-3.8 2l1.5 1c.6-.9 1.6-1.1 2.3-1.1 1 0 1.7.3 2.2.9.3.4.6 1 .7 1.7-.9-.1-1.8-.2-2.8-.1-2.8.2-4.6 1.8-4.5 4.1.1 1.2.7 2.2 1.6 2.8.8.5 1.9.8 3 .7 1.4-.1 2.6-.6 3.4-1.6.6-.8 1-1.8 1.2-3 .7.4 1.2 1 1.5 1.6.5 1.1.5 3-1 4.5-1.3 1.3-2.9 1.9-5.3 1.9-2.7 0-4.7-.9-6-2.6C5 17.2 4.4 14.9 4.4 12s.6-5.2 1.9-6.8C7.6 3.5 9.6 2.7 12.3 2.6c2.7 0 4.8.9 6.1 2.6.7.8 1.1 1.9 1.4 3.1l1.8-.5c-.4-1.5-1-2.7-1.8-3.8C18.1 1.8 15.6.8 12.3.8 9 .8 6.5 1.9 4.9 4 3.4 5.9 2.6 8.6 2.6 12s.8 6.1 2.3 8c1.6 2.1 4.1 3.2 7.4 3.2 2.9 0 5-.8 6.7-2.5 2.2-2.2 2.1-5 1.4-6.7-.5-1.2-1.6-2.2-3.1-2.9zm-4.9 4.9c-1.2.1-2.4-.5-2.5-1.5 0-.8.6-1.7 2.5-1.8h.6c.7 0 1.4.1 2 .2-.2 2.7-1.5 3-2.6 3.1z"/></svg>Threads</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a faculty member of Computer Science at the <a href="https://www.ict.mahidol.ac.th" target="_blank" rel="noopener">Faculty of Information and Communication Technology</a>, Mahidol University, where I also serve as Assistant Dean for Technology Infrastructure. My primary research areas are:</p>
+    <ul class="tags">
+      <li>Computer systems &amp; architecture</li>
+      <li>Operating &amp; distributed systems, cloud computing</li>
+      <li>Parallel &amp; high-performance computing</li>
+      <li>Cyber security</li>
+    </ul>
+
+    <div style="margin-top:36px">
+      <div>
+        <h3>Education</h3>
+        <ul class="plain">
+          <li><strong>Ph.D. in Computer Science</strong><br><a href="https://www.ucdavis.edu" target="_blank" rel="noopener">University of California, Davis</a>, USA
+            <div class="sub">Dissertation: Reverse Engineering of Content Delivery Algorithms for Social Media Systems<br>Advisor: <a href="https://web.cs.ucdavis.edu/~wu/" target="_blank" rel="noopener">Prof. Dr. S. Felix Wu</a></div></li>
+          <li><strong>M.S. in Computer Science</strong><br><a href="https://mahidol.ac.th" target="_blank" rel="noopener">Mahidol University</a>, Thailand
+            <div class="sub">Thesis: Echo Cancellation in VoIP<br>Advisor: Prof. Dr. Supachai Tangwongsan</div></li>
+          <li><strong>B.S. in Computer Science</strong><br><a href="https://mahidol.ac.th" target="_blank" rel="noopener">Mahidol University</a>, Thailand</li>
+        </ul>
+      </div>
+
+    <h3>Certifications</h3>
+    <ul class="tags">
+      <li>CISSP</li>
+      <li>CKA</li>
+      <li>CCSK</li>
+      <li>CEH</li>
+      <li>CompTIA Security+</li>
+      <li>AWS Solutions Architect – Associate</li>
+      <li>AWS Cloud Practitioner</li>
+      <li>Microsoft SC-900</li>
+      <li>ISO/IEC 27001:2022 Lead Auditor (CQI/IRCA)</li>
+      <li>ISO/IEC 27001:2022 Lead Auditor Practitioner (BSI)</li>
+      <li>Certified Data Protection Officer (C-DPO)</li>
+    </ul>
+    </div>
+
+    <h3>Work Experience</h3>
+    <ul class="timeline">
+      <li><span class="when">Nov 2022 – Present</span><span>Assistant Dean for Technology Infrastructure, Faculty of ICT, Mahidol University</span></li>
+      <li><span class="when">Dec 2019 – Present</span><span>Faculty member, <a href="https://www.ict.mahidol.ac.th" target="_blank" rel="noopener">Faculty of ICT, Mahidol University</a></span></li>
+      <li><span class="when">Jan – Dec 2023</span><span>IT Consultant, <a href="https://wemedlab.com/" target="_blank" rel="noopener">WEMedLab Co. Ltd.</a></span></li>
+      <li><span class="when">Jun 2022 – Mar 2023</span><span>Information Security Consultant, <a href="https://www.inspektion.co.th/" target="_blank" rel="noopener">Inspektion Co. Ltd.</a></span></li>
+      <li><span class="when">Aug – Nov 2019</span><span>Visiting Researcher, Cloud Innovation School, Tunghai University, Taiwan</span></li>
+      <li><span class="when">Sep – Dec 2018</span><span>Graduate Student Researcher, Department of Computer Science, UC Davis</span></li>
+      <li><span class="when">2016 – 2017, 2019</span><span>Teaching Assistant, Department of Computer Science, UC Davis</span></li>
+      <li><span class="when">2008 – 2010</span><span>Teaching Assistant, Faculty of ICT, Mahidol University</span></li>
+      <li><span class="when">2003 – 2008</span><span>Systems Administrator, <a href="https://muit.mahidol.ac.th/" target="_blank" rel="noopener">Mahidol University Computing Center</a></span></li>
+      <li><span class="when">Mar – May 2002</span><span>IT Support (Intern), ThaiPBS</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="pub-year">2026</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Compute-Communication Overlap in Parameter-Server Training: An Empirical Study Across Model, Bandwidth, and Bucket Granularity</span>
+        <span class="pub-authors">Sanhanut Kungwolngan, Phoonawit Lertchanaruangrit, Chaiyakrit Pokawanit, and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">32nd IEEE International Conference on Parallel and Distributed Systems (ICPADS 2026), Tokyo, Japan, Nov 22–26, 2026</span></li>
+      <li><span class="pub-title">Exploring Self-Sovereign Identity Through a Digital Transcript Proof-of-Concept</span>
+        <span class="pub-authors">Naphat Khajohn-Udomrith and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">Journal of Computer Science, 22(5), pp. 1577–1595, May 2026</span>
+        <a class="badge link" href="https://doi.org/10.3844/jcssp.2026.1577.1595" target="_blank" rel="noopener">DOI</a></li>
+      <li><span class="pub-title">Verifiable Credential Wallet for Digital Transcripts</span>
+        <span class="pub-authors">Tharathep Klinla-or and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">ICIC Express Letters, Vol. 20, No. 1, pp. 101–110, Jan 2026</span>
+        <a class="badge link" href="https://doi.org/10.24507/icicel.20.01.101" target="_blank" rel="noopener">DOI</a></li>
+      <li><span class="pub-title">Vulnerability Assessment of Default Configuration in Redis</span>
+        <span class="pub-authors">Aung Phyo and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">9th International Conference on Software Engineering and Information Management (ICSIM 2026), Yokohama, Japan, pp. 72–76, Jan 21–23, 2026</span>
+        <a class="badge link" href="https://doi.org/10.1145/3796315.3796326" target="_blank" rel="noopener">DOI</a></li>
+    </ol>
+
+    <div class="pub-year">2025</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Containerized and Host-Based RDBMSs Performance Comparison <span class="badge award">★ Best Paper Award</span></span>
+        <span class="pub-authors">Angkun Napradit, Phakphoom Masrijun, and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">11th International Conference on Computer and Communications (ICCC), Chengdu, China, pp. 12–16, Dec 12–15, 2025</span>
+        <a class="badge link" href="https://doi.org/10.1109/ICCC68654.2025.11438083" target="_blank" rel="noopener">DOI</a></li>
+      <li><span class="pub-title">Token-Based Authentication Monitoring System</span>
+        <span class="pub-authors">Pattharadanai Rujichaikul and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">Journal of Cyber Security and Mobility, Vol. 14, No. 4, pp. 777–798, Oct 2025</span>
+        <a class="badge link" href="https://doi.org/10.13052/jcsm2245-1439.1441" target="_blank" rel="noopener">DOI</a></li>
+      <li><span class="pub-title">The Design and Implementation of HTTP/3 DoS Prevention Technique on QUIC Initial Handshake</span>
+        <span class="pub-authors">Vasaka Visoottiviseth, Pongpisit Laosuwanwat, and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">17th International Conference on Knowledge and Smart Technology (KST), Bangkok, Thailand, pp. 370–375, 2025</span>
+        <a class="badge link" href="https://doi.org/10.1109/KST65016.2025.11003302" target="_blank" rel="noopener">DOI</a></li>
+    </ol>
+
+    <div class="pub-year">2023</div>
+    <ol class="pubs">
+      <li><span class="pub-title">ML-Based System Failure Detection Using Resource Utilization</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b>, Naphat Khajohn-udomrith, Mangkhales Ngamjaruskotchakorn, Teekawin Kirdsaeng, and Piyorot Khongchuay</span><br>
+        <span class="pub-venue">Springer International Publishing, Vol. 611, pp. 40–50, 2023</span>
+        <a class="badge link" href="https://doi.org/10.1007/978-3-031-27470-1_5" target="_blank" rel="noopener">DOI</a></li>
+    </ol>
+
+    <div class="pub-year">2022</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Lessons Learned from Penetration Testing Hands-on Training during COVID-19 Pandemic</span>
+        <span class="pub-authors">Songpon Teerakanok, <b>Ittipon Rassameeroj</b>, Assadarat Khurat, and Vasaka Visoottiviseth</span><br>
+        <span class="pub-venue">6th International Conference on Information Technology (InCIT), Nonthaburi, Thailand, pp. 368–373, 2022</span>
+        <a class="badge link" href="https://doi.org/10.1109/InCIT56086.2022.10067755" target="_blank" rel="noopener">DOI</a></li>
+      <li><span class="pub-title">Student Request System Prototype Using Low-Code Development Platform</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b>, Pattarapong Jomkhamsri, and Napatr Thaithaweewattana</span><br>
+        <span class="pub-venue">International Conference on Algorithms, Data Mining, and Information Technology (ADMIT), Xi'an, China, pp. 190–194, 2022</span>
+        <a class="badge link" href="https://doi.org/10.1109/ADMIT57209.2022.00038" target="_blank" rel="noopener">DOI</a></li>
+    </ol>
+
+    <div class="pub-year">2021</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Effect of Social Algorithms on Media Source Publishers in Social Media Ecosystems</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b> and S. Felix Wu</span><br>
+        <span class="pub-venue">Information Management and Big Data (SIMBig 2020), CCIS vol. 1410, Springer, pp. 362–375, May 2021</span>
+        <a class="badge link" href="https://doi.org/10.1007/978-3-030-76228-5_26" target="_blank" rel="noopener">DOI</a></li>
+    </ol>
+
+    <div class="pub-year">2020</div>
+    <ol class="pubs">
+      <li><span class="pub-title">How Do Fake News Propagators Exploit Social Algorithms To Promote Their Contents?</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b> and S. Felix Wu</span><br>
+        <span class="pub-venue">17th International Conference on Web Based Communities and Social Media, Zagreb, Croatia, pp. 157–164, Jul 21–23, 2020</span></li>
+    </ol>
+
+    <div class="pub-year">2019</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Reverse Engineering of Content Delivery Algorithms for Social Media Systems</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b> and S. Felix Wu</span><br>
+        <span class="pub-venue">IEEE 6th International Conference on Social Networks Analysis, Management, and Security (SNAMS), Granada, Spain, pp. 196–203, Oct 22–25, 2019</span></li>
+    </ol>
+
+    <div class="pub-year">2011</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Various Approaches in Analyzing Android Applications with its Permission-based Security Models</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">IEEE International Conference on Electro/Information Technology (IEEE EIT), Mankato, MN, USA, May 15–17, 2011</span></li>
+      <li><span class="pub-title">Performance Evaluation of Load Balanced Web Proxies</span>
+        <span class="pub-authors">Sudsanguan Ngamsuriyaroj, Pak Rattidham, <b>Ittipon Rassameeroj</b>, Suttatip Rungmano, et al.</span><br>
+        <span class="pub-venue">IEEE International Workshops of Quantitative Evaluation of Large-scale Systems and Technologies (IEEE QuEST), Biopolis, Singapore, pp. 746–750, Mar 22–25, 2011</span></li>
+    </ol>
+
+    <div class="pub-year">2010</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Echo Cancellation in VoIP with Improved Least Square Lattice Method</span>
+        <span class="pub-authors">Supachai Tangwongsan and <b>Ittipon Rassameeroj</b></span><br>
+        <span class="pub-venue">World Review of Science, Technology and Sustainable Development (WRSTSD), Inderscience, Vol. 7, Nos. 1/2, pp. 141–160, 2010</span>
+        <a class="badge link" href="https://dx.doi.org/10.1504/WRSTSD.2010.032350" target="_blank" rel="noopener">DOI</a></li>
+    </ol>
+
+    <div class="pub-year">2008</div>
+    <ol class="pubs">
+      <li><span class="pub-title">Echo Cancellation in Voice over IP</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b> and Supachai Tangwongsan</span><br>
+        <span class="pub-venue">5th International Conference on Information Technology and Application (ICITA), Cairns, Queensland, Australia, pp. 570–575, Jun 23–26, 2008</span></li>
+      <li><span class="pub-title">Evaluation of Different Echo Cancellation Algorithms for Packet-based Echo Canceller</span>
+        <span class="pub-authors"><b>Ittipon Rassameeroj</b> and Supachai Tangwongsan</span><br>
+        <span class="pub-venue">5th International Joint Conference on Computer Science and Software Engineering (JCSSE), Kanchanaburi, Thailand, pp. 236–240, May 7–9, 2008</span></li>
+    </ol>
+  </section>
+
+  <!-- ============ TEACHING ============ -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+
+    <h3>Undergraduate</h3>
+    <ul class="plain">
+      <li class="course"><span>Computer Security <code>ITCS312/461</code><code>ITDS271</code></span><span class="terms">1/2026, 2/2025, 1/2025, 2/2024, 2/2023, 2/2022, 2/2021, 2/2020</span></li>
+      <li class="course"><span>Parallel and High Performance Computing <code>ITCS436/443</code></span><span class="terms">1/2026, 1/2025, 1/2024, 1/2023, 1/2022</span></li>
+      <li class="course"><span>Introduction to Linux, Shell, and Commands <code>ITCS254</code></span><span class="terms">1/2026, 1/2025, 2/2024</span></li>
+      <li class="course"><span>Cloud Security (Special Topics in Cyber Security) <code>ITCS467</code></span><span class="terms">2/2025</span></li>
+      <li class="course"><span>IT Auditing <code>ITDS355</code></span><span class="terms">2/2024, 2/2023</span></li>
+      <li class="course"><span>Practical DevOps and Application <code>ITDS232</code></span><span class="terms">1/2024</span></li>
+      <li class="course"><span>Computer Architecture and Organization <code>ITCS222</code></span><span class="terms">1/2022, 1/2021, 1/2020</span></li>
+      <li class="course"><span>Principles of Operating Systems <code>ITCS343</code></span><span class="terms">2/2019</span></li>
+      <li class="course"><span>Information Technology and Trends for Future Healthcare <code>ITCS152</code></span><span class="terms">1/2026, 1/2025, 1/2024, 1/2023, 1/2022, 2/2021, 1/2021</span></li>
+      <li class="course"><span><a href="https://mux.mahidol.ac.th/courses/course-v1:MU-ICT+ICT002+MU-ICT_00001/about" target="_blank" rel="noopener">Cybersecurity Fundamentals</a> (MOOC) <code>ITCS154</code></span><span class="terms">Online</span></li>
+    </ul>
+
+    <h3>Graduate</h3>
+    <ul class="plain">
+      <li class="course"><span>Computer and Network Security <code>ITCY511</code></span><span class="terms">1/2026, 1/2025, 1/2024, 1/2023, 1/2022, 1/2021, 1/2020</span></li>
+      <li class="course"><span>Cloud Security <code>ITCY545</code></span><span class="terms">2/2025, 2/2023, 1/2023, 2/2021</span></li>
+      <li class="course"><span>Penetration Testing and System Hardening <code>ITCY531</code></span><span class="terms">2/2024, 2/2022, 2/2021, 2/2020</span></li>
+      <li class="course"><span>Cloud Computing and Service Oriented <code>ITCS551</code></span><span class="terms">2/2022, 2/2021</span></li>
+      <li class="course"><span>Blockchain Technology and Its Application (<a href="https://www.dpu.ac.th/" target="_blank" rel="noopener">DPU</a>) <code>WE664</code></span><span class="terms">1/2023, 1/2022</span></li>
+    </ul>
+
+    <h3>Professional Courses</h3>
+    <ul class="plain">
+      <li>"NIST Cybersecurity Framework" — Division of IT, Mahidol University <span class="sub">· Jun 18–19, 2026</span></li>
+      <li>"Version Control with Git" — Division of IT, Mahidol University <span class="sub">· Mar 27, 2026</span></li>
+      <li>"Version Control with Git" — Faculty of Medicine Siriraj Hospital <span class="sub">· Jan 30, 2026</span></li>
+      <li>"Containerize Everything" — Division of IT, Mahidol University <span class="sub">· Nov 27, 2025</span></li>
+      <li>"DGA309: Cyber Security for Technologist" — <a href="https://tdga.dga.or.th/" target="_blank" rel="noopener">TDGA</a>, TK Palace Hotel <span class="sub">· Apr 22–30 &amp; May 18–26, 2025</span></li>
+      <li>"DGA309: Cyber Security for Technologist" — TDGA, Century Park Hotel <span class="sub">· Mar 3–11 &amp; 17–25, 2025</span></li>
+      <li>"Cyber Security Bootcamp for Beginners" <span class="sub">· Feb 1–2, 2025</span></li>
+      <li>"Docker &amp; Kubernetes Essentials" <span class="sub">· Aug 22–23, 2024</span></li>
+      <li>"DGA309: Cyber Security for Technologist" — TDGA, Vic3 Bangkok Hotel <span class="sub">· Jul 1–5 &amp; 8–12, 2024</span></li>
+      <li>"Introduction to Docker" <span class="sub">· Sep 15, 2023</span></li>
+      <li>"Web Application Penetration Testing" — 600+ participants in 5 batches, funded by depa <span class="sub">· Jul–Oct 2023</span></li>
+      <li>"Docker &amp; Kubernetes Essentials" <span class="sub">· Jun 29–30, 2023</span></li>
+      <li>"Web Application Penetration Testing" — Krungsri Nimble Co. Ltd. <span class="sub">· Dec 13–14, 2022</span></li>
+      <li>"Penetration Testing" — 400 participants, funded by depa <span class="sub">· Aug–Oct 2022</span></li>
+      <li>"Penetration Testing and System Hardening" — 200 IT professionals, funded by depa <span class="sub">· Sep–Nov 2021</span></li>
+      <li>"Penetration Testing and System Hardening" — Thai General Insurance Association <span class="sub">· Mar 1–3, 2021</span></li>
+      <li>"Cyber Security" — funded by depa <span class="sub">· Sep 2020–Jan 2021</span></li>
+      <li>"Cyber Security Essentials" — Vic3 Bangkok Hotel <span class="sub">· Feb 27–28, 2020</span></li>
+    </ul>
+
+    <h3>Teaching Assistant</h3>
+    <ul class="plain">
+      <li class="course"><span><a href="https://bob.cs.ucdavis.edu/classes/w19-ecs251/index.html" target="_blank" rel="noopener">Advanced Operating Systems</a> <span class="sub">with Prof. Sam King</span> <code>ECS251</code></span><span class="terms">Winter 2019</span></li>
+      <li class="course"><span>Computer Organization and Machine-Dependent Programming <span class="sub">with Matt Butner</span> <code>ECS50</code></span><span class="terms">Spring 2017</span></li>
+      <li class="course"><span>Introduction to Programming and Problem Solving <span class="sub">with Dr. Rob Gysel</span> <code>ECS30</code></span><span class="terms">Winter 2017</span></li>
+      <li class="course"><span>Database Systems <span class="sub">with Dr. Christopher Nitta</span> <code>ECS165</code></span><span class="terms">Fall 2016</span></li>
+    </ul>
+
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <h2>Services</h2>
+
+    <h3>Academic &amp; Consulting Projects</h3>
+    <ul class="timeline">
+      <li><span class="when">Oct 2024 – Sep 2025</span><span>Project Leader, MFA Portal Gen 1 Consultant Project — <a href="https://www.mfa.go.th/" target="_blank" rel="noopener">Ministry of Foreign Affairs</a></span></li>
+      <li><span class="when">Dec 2024 – Aug 2025</span><span>Project Leader, Malware Information Sharing Platform (MISP) Project — <a href="https://www.ncsa.or.th/" target="_blank" rel="noopener">National Cyber Security Agency (NCSA)</a></span></li>
+      <li><span class="when">Feb – Dec 2024</span><span>Working group member, Document Wallets and Verifiable Credential (VC) Document Project — <a href="https://www.etda.or.th/" target="_blank" rel="noopener">ETDA</a></span></li>
+      <li><span class="when">Feb – May 2024</span><span>Data Correlation and Exchange Model for Querying Certified Products — Thai FDA</span></li>
+      <li><span class="when">Jul – Nov 2023</span><span>Project Leader, Web Application Penetration Testing Training (400 people) — depa</span></li>
+      <li><span class="when">Feb 2023 – Jan 2024</span><span>Consultant, computer system of Thailand e-Passport Production and Services Project Phase 3 — Department of Consular Affairs, MFA</span></li>
+      <li><span class="when">2023</span><span>Consultant, ISO 27001:2022 Implementation — Division of IT, Mahidol University</span></li>
+      <li><span class="when">Jul – Dec 2022</span><span>Project Leader, Penetration Testing and System Hardening Training (400 people) — depa</span></li>
+      <li><span class="when">Aug 2021 – Jun 2022</span><span>Consultant, Course Development for Auditors of Electronic Transactions — ETDA</span></li>
+      <li><span class="when">Jun – Dec 2021</span><span>Project Leader, Penetration Testing and System Hardening Training (200 people) — depa</span></li>
+      <li><span class="when">Aug 2020 – Aug 2021</span><span>Consultant, computer security of Thailand e-Passport Project Phase 3 — Department of Consular Affairs, MFA</span></li>
+    </ul>
+
+    <h3>Reviewer</h3>
+    <ul class="plain">
+      <li>Journal of Computer Science <span class="sub">· Apr 2026</span></li>
+      <li><a href="https://ph01.tci-thaijo.org/index.php/KKUSciJ" target="_blank" rel="noopener">KKU Science Journal</a> <span class="sub">· Mar 2026, Mar 2024</span></li>
+      <li><a href="https://onlinelibrary.wiley.com/journal/ijis" target="_blank" rel="noopener">International Journal of Intelligent Systems</a> <span class="sub">· Feb 2025</span></li>
+      <li>ECTI Transactions on Computer and Information Technology (ECTI-CIT) <span class="sub">· Aug 2024</span></li>
+      <li><a href="https://www.sciencedirect.com/journal/blockchain-research-and-applications" target="_blank" rel="noopener">Blockchain: Research and Applications</a>, Zhejiang University Press <span class="sub">· Jan 2024</span></li>
+      <li><a href="https://www.iaria.org/conferences2023/ACCSE23.html" target="_blank" rel="noopener">8th International Conference on Advances in Computation, Communications and Services (ACCSE 2023)</a> <span class="sub">· Apr 2023</span></li>
+      <li><a href="https://www.inderscience.com/jhome.php?jcode=ijcsyse" target="_blank" rel="noopener">International Journal of Computational System Engineering</a>, Inderscience <span class="sub">· Sep 2022</span></li>
+      <li><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8964404" target="_blank" rel="noopener">International Journal of Social Computing</a>, IEEE &amp; Tsinghua University Press <span class="sub">· Sep 2022</span></li>
+      <li>Journal of Graduate Studies and Social Sciences, Uttaradit Rajabhat University <span class="sub">· May 2022</span></li>
+      <li>PeerJ Computer Science (Cryptography, Security, and Privacy) <span class="sub">· 2021</span></li>
+    </ul>
+
+    <h3>Technical Program Committee</h3>
+    <ul class="plain">
+      <li><a href="https://www.iccc.org/technical.html" target="_blank" rel="noopener">12th IEEE International Conference on omputer and Communications (ICCC 2025)</a>, Chengdu, China <span class="sub">· Dec 11–14, 2026</span></li>
+      <li><a href="https://www.iaria.org/conferences2026/ComACCSE26.html" target="_blank" rel="noopener">11th International Conference on Advances in Computation, Communications, and Services (ACCSE 2026)</a>, Lisbon, Portugal <span class="sub">· Apr 19–23, 2026</span></li>
+      <li><a href="https://www.iccc.org/technical.html" target="_blank" rel="noopener">11th IEEE International Conference on Computer and Communications (ICCC 2025)</a>, Chengdu, China <span class="sub">· Dec 12–15, 2025</span></li>
+      <li><a href="https://www.iaria.org/conferences2025/ComACCSE25.html" target="_blank" rel="noopener">10th International Conference on Advances in Computation, Communications, and Services (ACCSE 2025)</a>, Valencia, Spain <span class="sub">· Apr 6–10, 2025</span></li>
+      <li><a href="https://www.iaria.org/conferences2024/ComACCSE24.html" target="_blank" rel="noopener">9th International Conference on Advances in Computation, Communications, and Services (ACCSE 2024)</a>, Venice, Italy <span class="sub">· Apr 14–18, 2024</span></li>
+      <li><a href="https://www.iaria.org/conferences2023/ComACCSE23.html" target="_blank" rel="noopener">8th International Conference on Advances in Computation, Communications, and Services (ACCSE 2023)</a>, Nice, France <span class="sub">· Jun 26–30, 2023</span></li>
+      <li>AI on Education Workshop, <a href="http://ics2020.ncku.edu.tw/" target="_blank" rel="noopener">International Computer Symposium (ICS 2020)</a>, Tainan, Taiwan <span class="sub">· Dec 17–19, 2020</span></li>
+    </ul>
+
+    <h3>Session Chair</h3>
+    <ul class="plain">
+      <li>Group Processes and Self-Organization: Collaborative Technologies Session — 17th International Conference on Web Based Communities and Social Media, Zagreb, Croatia <span class="sub">· Jul 23, 2020</span></li>
+      <li>Cyber Security Session — IEEE International Conference on Electro/Information Technology (IEEE EIT), Mankato, MN, USA <span class="sub">· May 15–17, 2011</span></li>
+    </ul>
+
+    <h3>Adjudicator</h3>
+    <ul class="plain">
+      <li>Siriraj International Interprofessional Debate on Global Health 2025, Faculty of Medicine Siriraj Hospital, Mahidol University <span class="sub">· Jun 29, 2025</span></li>
+    </ul>
+
+    <details>
+      <summary>Invited Talks<span class="count">38</span></summary>
+      <ul class="plain">
+        <li>"Cybersecurity Awareness and Responsible AI Use for Higher Education" — College of Religious Studies, Mahidol University <span class="sub">· Jul 2, 2026</span></li>
+        <li>"NIST Cybersecurity Framework" — Division of IT, Mahidol University <span class="sub">· Jun 18–19, 2026</span></li>
+        <li>"Cyber Security Fundamentals" — Silpakorn University <span class="sub">· Jun 11, 2026</span></li>
+        <li>"Cybersecurity and AI Ethics for Government Operations" — Department of Industrial Works, Ministry of Industry <span class="sub">· May 14, 2026</span></li>
+        <li>"Cyber Security Awareness" — Jirasartwitthaya School, Phra Nakhon Si Ayutthaya <span class="sub">· May 13, 2026</span></li>
+        <li>"Cybersecurity and Ethics for AI Technology in Public Sector Operations" — Ministry of Industry <span class="sub">· Mar 31, 2026</span></li>
+        <li>"Version Control with Git" — Division of IT, Mahidol University <span class="sub">· Mar 27, 2026</span></li>
+        <li>"Cyber Security Awareness" — Office of the National Security Council <span class="sub">· Mar 4–6, 2026</span></li>
+        <li>"Research in Cyber Security" — Department of Computer Science, Kasetsart University <span class="sub">· Feb 27 &amp; Mar 2, 2026</span></li>
+        <li>"Cyber Security in Public Health" — Department of Disease Control, M-EBS Seminar <span class="sub">· Feb 26, 2026</span></li>
+        <li>"Cyber Security Trends" — Faculty of Science and Technology, Bangkok Thonburi University <span class="sub">· Feb 22, 2026</span></li>
+        <li>"Knowledge Sharing in Cybersecurity and Computer Systems Research" — College of Computing, PSU Phuket <span class="sub">· Dec 4, 2025</span></li>
+        <li>"Containerize Everything" — Division of IT, Mahidol University <span class="sub">· Nov 27, 2025</span></li>
+        <li>"Innovations from Academia" — <a href="https://apnic.foundation/what-we-do/empowertech/empowertechthailand2025/" target="_blank" rel="noopener">EmpowerTech Thailand 2025</a>, APNIC Foundation <span class="sub">· Nov 15, 2025</span></li>
+        <li>"Secure Digital Infrastructure and Data Governance" — NBTC <span class="sub">· Sep 10, 2025</span></li>
+        <li>"Cyber Security Awareness" — Office of the National Security Council <span class="sub">· Jul 30, 2025</span></li>
+        <li>"Cyber Security Fundamentals" — Silpakorn University <span class="sub">· Jul 23, 2025</span></li>
+        <li>"Web Security Best Practice" — Division of IT, Mahidol University <span class="sub">· Jul 17, 2025</span></li>
+        <li>"Cyber Security" — Institute of Nutrition, Mahidol University <span class="sub">· Jun 13, 2025</span></li>
+        <li>"Blockchain Changes the World" — Mahidol University Nakhon Sawan Campus <span class="sub">· Nov 13, 2024</span></li>
+        <li>"All about Cloud and its Application" — Mahidol University Nakhon Sawan Campus <span class="sub">· Oct 12, 2024</span></li>
+        <li>"Cyber Security Awareness" — Office of the National Security Council <span class="sub">· Feb 21, 2024</span></li>
+        <li>"Web Application Security" — Faculty of Business Administration, RMUTP <span class="sub">· Jan 26, 2024</span></li>
+        <li>"Cybersecurity" — DCU Global Youth Camp: Youth Voices in Digital Era <span class="sub">· Jan 9, 2024</span></li>
+        <li>"Trends and Directions in the Development of Thai Passport Services" — Department of Consular Affairs, MFA <span class="sub">· Sep 26, 2023</span></li>
+        <li>"Cybersecurity Leadership and Strategy for Executives, Organization Leaders, and Researchers" — Mahidol AI Center <span class="sub">· Sep 13, 2023</span></li>
+        <li>"Token-Based Authentication Monitoring System" — SWITCH Thailand National Event 2023 <span class="sub">· Aug 6, 2023</span></li>
+        <li>"Blockchain Technologies" — College of Creative Design and Entertainment Technology, DPU <span class="sub">· Jun 25, 2023</span></li>
+        <li>"Cyber Security Awareness" — Office of the National Security Council <span class="sub">· Jun 13, 2023</span></li>
+        <li>"Cyber Security Awareness" — Faculty of ICT, Mahidol University <span class="sub">· Mar 17, 2023</span></li>
+        <li>"Cyber Security Awareness" — Institute of Molecular Biosciences, Mahidol University <span class="sub">· Dec 23, 2022</span></li>
+        <li>"Blockchain Technologies" — College of Creative Design and Entertainment Technology, DPU <span class="sub">· Jul 23, 2022</span></li>
+        <li>"Blockchain" — IFMSA Thailand <span class="sub">· Apr 2, 2022</span></li>
+        <li>"Web Security" — Faculty of Science and Technology, Huachiew Chalermprakiet University <span class="sub">· Oct 8, 2021</span></li>
+        <li>"Security and Privacy in Health Information Exchange (HIE)" — Medical Informatics and Imaging Informatics Certificate Program <span class="sub">· Jul 10, 2021</span></li>
+        <li>"Sensitive Data Protection and Vulnerabilities Assessment in Web Application" — Division of IT, Mahidol University <span class="sub">· Jun 28, 2021</span></li>
+        <li>"Data Privacy and Security for Web Developers" — Division of IT, Mahidol University <span class="sub">· Mar 5, 2021</span></li>
+        <li>"Content Delivery Network (CDN) for E-Business Services" — The Revenue Department <span class="sub">· Feb 11, 2021</span></li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ============ STUDENTS ============ -->
+  <section id="students">
+    <h2>Students &amp; Projects</h2>
+
+    <h3>Current Students</h3>
+    <ul class="students">
+      <li><div class="name">Sedtaphop (Pure) Pijanwanid</div><div class="sub">M.S. in Cyber Security</div></li>
+      <li><div class="name">Sujinna (Gift) Phutatham</div><div class="sub">M.S. in Cyber Security</div></li>
+      <li><div class="name">Noppawut (Tle) Lertpasanawat</div><div class="sub">B.S. in Digital Science &amp; Technology</div></li>
+      <li><div class="name">Pathanin (Earth) Phisitbut</div><div class="sub">B.S. in Digital Science &amp; Technology</div></li>
+      <li><div class="name">Chanathip (Jab) Chaowaphong</div><div class="sub">B.S. in Digital Science &amp; Technology</div></li>
+    </ul>
+
+    <h3>Graduate Alumni</h3>
+    <ul class="plain">
+      <li><strong>Sukrit (Nut) Paiboon</strong>, M.S. Cyber Security, 2026<div class="sub">Thesis: eBPF-based VFS Operations Ransomware Protection &amp; Detection</div></li>
+      <li><strong><a href="https://www.linkedin.com/in/aung-phyo-ba136235/" target="_blank" rel="noopener">Aung Phyo</a></strong>, M.S. Cyber Security, 2025<div class="sub">Thesis: Redis Default Configuration Vulnerabilities Scanner</div></li>
+      <li><strong><a href="https://www.linkedin.com/in/tharathep-k-64194894/" target="_blank" rel="noopener">Tharathep (Fill) Klinla-or</a></strong>, M.S. Computer Science, 2024<div class="sub">Thesis: Verifiable Credential Wallet for Digital Transcript</div></li>
+      <li><strong><a href="https://www.linkedin.com/in/naphat-kha/" target="_blank" rel="noopener">Naphat (Third) Khajohn-udomrith</a></strong>, M.S. Cyber Security, 2024<div class="sub">Thesis: SSI for VC-Based Digital Transcript (co-advised with Dr. Chakan Pramkaew)</div></li>
+      <li><strong>Pattharadanai (Tee) Rujichaikul</strong>, M.S. Cyber Security, 2023<div class="sub">Thesis: Token-Based Authentication Monitoring System</div></li>
+    </ul>
+
+    <h3>Undergraduate Senior Projects</h3>
+    <ul class="plain">
+      <li class="alumni-group"><span class="proj">Compute-Communication Overlap in Distributed Training: An Empirical Study across Model, Network, and Configuration Condition</span> <span class="sub"> · 2026</span><br>
+        Sanhanut (Prompt) Kungwolngan, Phoonawit (Boom) Lertchanaruangrit, Chaiyakrit (JayJay) Pokawanit</li>
+      <li class="alumni-group"><span class="proj">A Practical Approach to Detect and Analyze Data Breaches on The Darknet</span> <span class="sub"> · 2026</span><br>
+        <a href="https://www.linkedin.com/in/pakkaphan-permvanitkul-5ba6292a6/" target="_blank" rel="noopener">Pakkaphan (Tar) Permvanitkul</a>, Panodpong (Lee) Yanyongweroj, <a href="https://www.linkedin.com/in/punnatorn-supinyo-8091532a5/" target="_blank" rel="noopener">Punnatorn (New) Supinyo</a></li>
+      <li class="alumni-group"><span class="proj">Secure LLM Chatbot with Issue Tracking for Customer Service</span> <span class="sub"> · 2025 · co-advised with Dr. Apirak Hoonlor</span><br>
+        <a href="https://www.linkedin.com/in/snplus/" target="_blank" rel="noopener">Sirichet (Keng) Nontichan</a>, Ravisara (Mind) Wilaipong</li>
+      <li class="alumni-group"><span class="proj">CTF Challenge Design Framework</span> <span class="sub"> · 2025 · co-advised with Dr. Songpon Teerakanok</span><br>
+        <a href="https://www.linkedin.com/in/sirapath-thainiyom/" target="_blank" rel="noopener">Sirapath (Mel) Thainiyom</a>, <a href="https://www.linkedin.com/in/soravit-sirihatasak/" target="_blank" rel="noopener">Soravit (Mark) Sirihatasak</a>, <a href="https://www.linkedin.com/in/kamin-dechopanyakul-509059268/" target="_blank" rel="noopener">Kamin (Tan) Dechopanyakul</a></li>
+      <li class="alumni-group"><span class="proj">Cybercrime Website Report and Verification</span> <span class="sub"> · 2024</span><br>
+        <a href="https://www.linkedin.com/in/pprisan/" target="_blank" rel="noopener">Pheeraphat (New) Prisan</a>, <a href="https://www.linkedin.com/in/apichaya-maneewong-a7241422a/" target="_blank" rel="noopener">Apichaya (Prae) Maneewong</a>, <a href="https://www.linkedin.com/in/chayakun-borattasuwan-314b10148/" target="_blank" rel="noopener">Chayakun (Bam) Borattasuwan</a></li>
+      <li class="alumni-group"><span class="proj">Online Health Checkup Appointment Platform</span> <span class="sub"> · 2024</span><br>
+        <a href="https://www.linkedin.com/in/supakitt-surojanakul/" target="_blank" rel="noopener">Supakitt (Ohm) Surojanakul</a>, Napat (Karn) Veerakul, <a href="https://linkedin.com/in/atchaya-sri" target="_blank" rel="noopener">Atchaya (Aum) Srimongkolthana</a></li>
+      <li class="alumni-group"><span class="proj">Data Anonymization and Pseudonymization</span> <span class="sub"> · 2023</span><br>
+        <a href="https://www.linkedin.com/in/suti-pongpitakpakde-05568220b/" target="_blank" rel="noopener">Suti (Pae) Pongpitakpakde</a>, <a href="https://www.linkedin.com/in/taiichi-sudo/" target="_blank" rel="noopener">Taiichi Sudo</a>, <a href="https://www.linkedin.com/in/suphakorn-chanthara-36a997208/" target="_blank" rel="noopener">Suphakorn (Golf) Chanthara</a></li>
+      <li class="alumni-group"><span class="proj">Multi-tier Cluster Failure Prediction for PromptPay Systems</span> <span class="sub"> · 2022</span><br>
+        <a href="https://www.linkedin.com/in/naphat-kha/" target="_blank" rel="noopener">Naphat (Third) Khajohn-udomrith</a>, <a href="https://www.linkedin.com/in/mangkhales-ngamjaruskotchakorn-42a7331a7/" target="_blank" rel="noopener">Mangkhales (Ice) Ngamjaruskotchakorn</a>, <a href="https://www.linkedin.com/in/teekawin-kirdsaeng/" target="_blank" rel="noopener">Teekawin (Ohm) Kirdsaeng</a></li>
+      <li class="alumni-group"><span class="proj">Students Request System</span> <span class="sub"> · 2022</span><br>
+        Pattarapong (New) Jomkhamsri, <a href="https://www.linkedin.com/in/napatr-thaithaweewattanakul-0537561a9/" target="_blank" rel="noopener">Napatr (Arm) Thaithaweewattana</a></li>
+      <li class="alumni-group"><span class="proj">Privacy-Preserving Based Access Control for Health Information Network</span> <span class="sub"> · 2021</span><br>
+        <a href="https://www.linkedin.com/in/swzhouu/" target="_blank" rel="noopener">Jiraput (Path) Thamsongkrah</a>, <a href="https://www.linkedin.com/in/chidchanok-bunjongpean/" target="_blank" rel="noopener">Chidchanok Bunjongpean</a>, <a href="https://www.linkedin.com/in/arizadolsooklert/" target="_blank" rel="noopener">Ariza Dolsooklert</a></li>
+    </ul>
+  </section>
+
+  <!-- ============ CREDENTIALS ============ -->
+  <section id="credentials">
+    <h2>Honors &amp; Training</h2>
+    <details>
+      <summary>All Honors &amp; Awards<span class="count">11</span></summary>
+      <ul class="plain">
+        <li>Best Paper Award, 11th International Conference on Computer and Communications, Chengdu, China <span class="sub">· Dec 2025</span></li>
+        <li>Scholarship, 25th AJCCBC Cybersecurity Technical Training, "Enhancing ASEAN-Japan Capacity Building Programme for Cybersecurity and Trusted Digital Services" (NCSA, JICA, AJCCBC) <span class="sub">· Jun 2023</span></li>
+        <li>Funding for Research and Professional Development, APNIC Foundation SWITCH SEA Project <span class="sub">· Jul 2022 – Sep 2023</span></li>
+        <li>Sponsorship for CCSK training (depa, ETDA, CSA) <span class="sub">· May 2020</span></li>
+        <li>Thesis Writing Fellowship, Department of Computer Science, UC Davis <span class="sub">· Spring 2019</span></li>
+        <li>GSR Assistantship, UC Davis, sponsored by U.S. Army Research Laboratory (ARL) <span class="sub">· Fall 2018</span></li>
+        <li>Royal Thai Government Scholarship (MHESI) — full scholarship for Ph.D. study in the USA</li>
+        <li>Dean's List Award, Master's degree <span class="sub">· 2007</span></li>
+        <li>Graduate Research Travel Award, Faculty of Graduate Studies, Mahidol University — ICITA 2008, Cairns, Australia</li>
+        <li>Full Graduate Scholarship, M.S. in Computer Science, Mahidol University</li>
+        <li>Full Undergraduate Scholarship, Department of Computer Science &amp; Computing Center, Mahidol University</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Training<span class="count">24</span></summary>
+      <ul class="plain">
+        <li>Verifiable Credentials — Web Consortium Asia Pacific (WCAP) <span class="sub">· Jun 23, 2026</span></li>
+        <li>Cloud Security Standard for Practitioner — NCSA <span class="sub">· May 25–27, 2026</span></li>
+        <li>DNSSEC Hands-On Workshop — THNIC &amp; ICANN <span class="sub">· Nov 21–22, 2024</span></li>
+        <li>Certified Ethical Hacker (CEH) — NCSA <span class="sub">· Sep 30 – Oct 4, 2024</span></li>
+        <li>Security Operation Center (Tier 1) Workshop — NCSA &amp; Fortinet <span class="sub">· Jun 13, 2024</span></li>
+        <li>ISO/IEC 42001:2023 AI Management System Requirement and Awareness — BSI <span class="sub">· May 6, 2024</span></li>
+        <li>Certified Information System Auditor — ACinfotec <span class="sub">· Jan 2–5, 2024</span></li>
+        <li>Thailand's National Cyber Exercise — NCSA <span class="sub">· Jul &amp; Aug 2023</span></li>
+        <li>CYDER and Network Forensics — 25th AJCCBC Cybersecurity Technical Training <span class="sub">· Jun 19–23, 2023</span></li>
+        <li>CompTIA Security+ — NCSA <span class="sub">· Apr 10–12, 2023</span></li>
+        <li>PDPA for SMEs — depa, The Federation of Thai SME, PDPA Thailand</li>
+        <li>Thailand Cyber Security Act Lead Implementer — NCSA <span class="sub">· Jul 18–22, 2022</span></li>
+        <li>ISO 27001:2013 Lead Auditor — BSI <span class="sub">· Jan 24–27, 2022</span></li>
+        <li>OWASP Top 10 Penetration Testing — NCSA <span class="sub">· Jan 12–14, 2022</span></li>
+        <li>AWS Cloud Foundation — AWS Thailand, sponsored by depa <span class="sub">· Nov–Dec 2021</span></li>
+        <li>Data Protection Officer (DPO) — ACIS Professional Center <span class="sub">· Jul 13–16, 2021</span></li>
+        <li>ISO 27001:2013 Internal Audit — SGS Academy <span class="sub">· Dec 2020 &amp; Jan 2021</span></li>
+        <li><a href="https://coursera.org/share/52a22bdd88d55c3a52ea71bc56dcb4e1" target="_blank" rel="noopener">Google Cloud Platform Fundamentals: Core Infrastructure</a> <span class="sub">· Jun 2020</span></li>
+        <li><a href="https://coursera.org/verify/specialization/KJMGM7LZFPDG" target="_blank" rel="noopener">AWS Fundamentals Specialization</a> <span class="sub">· Jun 2020</span></li>
+        <li>Cloud Security Knowledge Training — CSA, sponsored by depa <span class="sub">· May 2020</span></li>
+        <li>AWS Educate Deep Learning Workshop Using MXNet — Feng Chia University, Taiwan <span class="sub">· Sep 2–4, 2019</span></li>
+        <li>HP Blade System Administration <span class="sub">· Oct 2007</span></li>
+        <li>VoIP and SIP — InterLab, AIT <span class="sub">· May 2006</span></li>
+        <li>Vocational Certificate in Accounting</li>
+      </ul>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <address>
+      <strong>Faculty of ICT, Mahidol University</strong><br>
+      999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom 73170, Thailand<br>
+      <a href="mailto:ittipon.ras@mahidol.ac.th">ittipon.ras@mahidol.ac.th</a> · Tel +66 (0)2 441-0909
+    </address>
+    <div>
+      © <span id="yr">2026</span> Ittipon Rassameeroj
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Theme toggle (remembers choice when storage is available)
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('themeBtn');
+    try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+    btn.addEventListener('click', function () {
+      var cur = root.getAttribute('data-theme') ||
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+
+  // Highlight the current section in the nav
+  (function () {
+    var links = document.querySelectorAll('nav a');
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.classList.remove('active'); });
+          if (map[e.target.id]) map[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('section[id]').forEach(function (s) { obs.observe(s); });
+  })();
+</script>
+</body>
 </html>
